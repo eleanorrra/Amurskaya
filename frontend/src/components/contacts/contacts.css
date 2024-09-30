@@ -1,0 +1,114 @@
+/* Общие стили для контейнера контактов */
+.contactscontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f8f8; /* Светлый фон для контрастности */
+  min-height: 100vh; /* Занимает всю высоту экрана */
+}
+
+/* Заголовок */
+h2 {
+  font-size: 2rem;
+  color: #333333; /* Темный цвет текста */
+  margin-bottom: 20px;
+}
+
+/* Стили для каждого соседа */
+.neighbor {
+  display: flex;
+  align-items: center;
+  background-color: #fff; /* Белый фон для карточек контактов */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.51); /* Легкая тень */
+  padding: 15px;
+  margin-bottom: 15px;
+  width: 500px; /* Ширина карточки контакта */
+}
+
+/* Информация о контакте */
+.info {
+  flex-grow: 1; /* Занимает оставшееся пространство */
+  margin-left: 50px;
+}
+
+/* Заголовок имени контакта с кругом и кнопкой удаления */
+.contact-header {
+  display: flex; /* Центрируем элементы по вертикали */
+}
+
+/* Круглый элемент для изображения или иконки */
+.circle {
+  width: 15px; /* Ширина круга */
+  height: 15px; /* Высота круга */
+  border-radius: 50%; /* Округление для круга */
+  background-color: #007bff; /* Цвет фона круга */
+  margin-right: 10px; /* Отступ справа от круга */
+}
+
+/* Заголовок имени контакта */
+h3 {
+  font-size: 1.5rem;
+  color: #007bff; /* Цвет имени */
+}
+
+/* Кнопка удаления контакта */
+.delete-button {
+  background-color: transparent; /* Прозрачный фон для кнопки */
+  border: none; /* Без рамки */
+  color: #ff4d4d; /* Красный цвет для удаления */
+  cursor: pointer; /* Указатель при наведении */
+}
+
+/* Кнопка добавления контакта */
+.add-contact {
+  background-color: #28a745; /* Зеленый фон для кнопки добавления */
+  color: white; /* Белый текст на кнопке */
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Модальное окно для добавления контакта */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Полупрозрачный фон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white; /* Белый фон модального окна */
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: rgba(0,0,0,0.2) -1px -1px; 
+}
+
+/* Стили для полей ввода в модальном окне */
+input[type="number"] {
+    width: calc(100% - 20px);
+    padding:10px; 
+    margin-bottom:10px; 
+    border-radius :5px ; 
+    border :1px solid #ccc ; 
+}
+
+/* Кнопки в модальном окне */
+.modal-button {
+  background-color: #28a745; 
+  color: white; 
+  padding: 10px 15px; 
+  border-radius: 4px; 
+  cursor: pointer; 
+}
+
+.modal-button.cancel {
+ background-color : #dc3545 ; 
+}

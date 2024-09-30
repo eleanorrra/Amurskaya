@@ -1,0 +1,77 @@
+.header {
+    display: flex;
+    justify-content: center; /* Center navigation items */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff; /* Change background color to white */
+    position: fixed; /* Fixes the header at the top */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensures it stays above other content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+.nav {
+    display: flex;
+    gap: 20px; /* Space between navigation items */
+}
+
+.navItem {
+    text-decoration: none;
+    color: #333; /* Default text color */
+    padding: 10px 20px; /* Increased padding for a rectangular shape */
+    border: 1px solid transparent; /* Initial transparent border */
+    border-radius: 3px; /* Slightly rounded corners for buttons */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition */
+}
+
+.navItem:hover {
+    background-color: #007bff; /* Blue background on hover */
+    color: white; /* White text on hover */
+    border-color: #007bff; /* Blue border on hover */
+}
+
+.active {
+    font-weight: bold; /* Bold active link */
+}
+
+.notificationButton {
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 24px; /* Size of the bell icon */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.notificationsWindow {
+    position: absolute; /* Absolute positioning */
+    top: 60px; /* Adjust based on header height */
+    right: 60px; /* Distance from the right edge */
+    width: 270px; /* Width of notification window */
+    background-color: white; /* Background color */
+    border: 1px solid #ddd; /* Border for the window */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside the window */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow for depth */
+}
+
+.notificationItem {
+    margin-bottom: 10px; /* Space between notifications */
+}
+
+.notificationDate {
+    color: #777; /* Lighter color for date text */
+}
+
+.closeButton {
+    display: block;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #dc3545; /* Red color for close button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    background-color: #c82333; /* Darker red on hover */
+}

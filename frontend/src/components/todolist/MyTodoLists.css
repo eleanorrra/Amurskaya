@@ -1,0 +1,103 @@
+/* Основной контейнер для списка задач */
+.my-todo-lists {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 60px;
+    background-color: #f9f9f9; /* Светлый фон для контраста */
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+/* Стили для списка задач */
+.todo-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Элементы списка задач */
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 15px; /* Увеличенный отступ для лучшего восприятия */
+    border-bottom: 1px solid #ddd; /* Линия разделения */
+}
+
+/* Ссылка на задачу */
+.list-link {
+    color: #007bff; /* Цвет ссылки */
+    text-decoration: none; /* Без подчеркивания */
+    margin-right: auto; /* Отодвигает ссылку к левому краю */
+}
+
+/* Кнопка удаления задачи */
+.delete-button {
+    background-color: transparent; /* Прозрачный фон для кнопки */
+    border: none; /* Без рамки */
+    color: #dc3545; /* Красный цвет для удаления */
+    font-size: 20px; /* Размер шрифта кнопки удаления */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+/* Кнопка создания списка задач */
+.create-list {
+    display: block;
+    width: 100%;
+    padding: 12px; /* Увеличенный отступ для кнопки создания списка */
+    background-color: #28a745; /* Зеленый фон для кнопки создания списка */
+    color: white; /* Белый текст на кнопке */
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Модальное окно для создания списка задач */
+.modal-todo-list {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white; /* Белый фон модального окна */
+    padding: 20px;
+    border-radius: 8px; /* Закругленные углы модального окна */
+    width: 300px; /* Ширина модального окна */
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Тень для модального окна */
+}
+
+/* Затемняющий фон для модального окна */
+.overlay-todo-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    z-index: 9998;
+}
+
+/* Поля ввода в модальном окне */
+.modal-input {
+    display: block;
+    width: calc(100% - 20px); /* Ширина с учетом отступов */
+    margin: 0 auto 10px; 
+    padding: 10px;
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+}
+
+/* Кнопки в модальном окне */
+.modal-button {
+    background-color: #28a745; /* Зеленый цвет фона для кнопок*/
+    color: white; /* Белый текст на кнопках*/
+    border: none; /* Без границы у кнопок*/
+    padding: 10px 15px; /* Отступы внутри кнопок*/
+    border-radius: 4px; /* Закругленные углы у кнопок*/
+    cursor: pointer; /* Указатель при наведении на кнопки*/
+}
+
+.modal-button.cancel {
+   background-color : #dc3545 ; 
+}

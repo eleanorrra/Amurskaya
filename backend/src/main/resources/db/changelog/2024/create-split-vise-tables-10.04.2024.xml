@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="create-split-vise-table" author="e.ignatyeva">
+        <createTable tableName="split_vise">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="date_created" type="timestamptz"/>
+            <column name="name" type="text"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-split-vise-item-table" author="e.ignatyeva">
+        <createTable tableName="split_vise_item">
+            <column name="id" type="bigserial">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="text"/>
+            <column name="split_vise_id" type="bigint"/>
+            <column name="user_payed_id" type="bigint"/>
+            <column name="price" type="decimal(20, 2)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-split-vise-to-user-table" author="e.ignatyeva">
+        <createTable tableName="split_vise_to_user">
+            <column name="split_vise_id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-split_vice_item_to_user-table" author="e.ignatyeva">
+        <createTable tableName="split_vice_item_to_user">
+            <column name="split_vise_item_id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints primaryKey="true" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create-split-vise-balance-table" author="e.ignatyeva">
+        <createTable tableName="split_vise_balance">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="split_vise_id" type="bigint">
+            </column>
+            <column name="user_id_from" type="bigint">
+            </column>
+            <column name="user_id_to" type="bigint">
+            </column>
+            <column name="debt" type="decimal(20, 2)">
+            </column>
+        </createTable>
+    </changeSet>
+
+
+
+</databaseChangeLog>

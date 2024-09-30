@@ -1,0 +1,164 @@
+Основной контейнер для списка splitWise
+.my-splitwise-list {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 60px;
+    background-color: #f9f9f9; /* Светлый фон для контраста */
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+/* Заголовок списка splitWise */
+h2 {
+    text-align: center; /* Центрирование заголовка */
+    color: #333; /* Цвет текста заголовка */
+    margin-bottom: 20px; /* Отступ снизу от заголовка */
+}
+
+/* Стили для списка splitWise */
+.split-wise {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Элементы списка splitWise */
+.split-wise-item {
+    display: flex;
+    align-items: center;
+    padding: 15px; /* Увеличенный отступ для лучшего восприятия */
+    border-bottom: 1px solid #ddd; /* Линия разделения */
+}
+
+/* Стили для ссылки в списке splitWise */
+.list-link {
+    color: #007bff; /* Цвет ссылки */
+    text-decoration: none; /* Без подчеркивания */
+    margin-right: auto; /* Отодвигает ссылку к левому краю */
+}
+
+/* Эффекты при наведении на ссылку */
+.list-link:hover {
+    text-decoration: underline; /* Подчеркивание при наведении на ссылку */
+    color: #0056b3; /* Темнее синий цвет при наведении */
+}
+
+/* Кнопка удаления задачи в списке splitWise */
+.delete-button {
+    background-color: transparent; /* Прозрачный фон для кнопки */
+    border: none; /* Без рамки */
+    color: #dc3545; /* Красный цвет для удаления */
+    font-size: 20px; /* Размер шрифта кнопки удаления */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+/* Кнопка создания нового splitWise */
+.create-split-wise {
+    display: block;
+    width: 100%;
+    padding: 12px; /* Увеличенный отступ для кнопки создания списка */
+    background-color: #28a745; /* Зеленый фон для кнопки создания списка */
+    color: white; /* Белый текст на кнопке */
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Стили для модального окна при создании нового splitWise */
+.modal-split-wise {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white; /* Белый фон модального окна */
+    padding: 20px;
+    border-radius: 8px; /* Закругленные углы модального окна */
+    width: 300px; /* Ширина модального окна */
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Тень для модального окна */
+}
+
+/* Затемняющий фон для модального окна при открытии*/
+.overlay-split-wise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    z-index: 9998;
+}
+
+/* Поле ввода в модальном окне для названия splitWise*/
+.modal-input {
+    display: block;
+    width: calc(100% - 20px); /* Ширина с учетом отступов */
+    margin: 0 auto 10px; 
+    padding: 10px;
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+}
+
+/* Кнопки в модальном окне при создании нового splitWise*/
+.modal-button {
+    background-color: #28a745; /* Зеленый цвет фона для кнопок*/
+    color: white; /* Белый текст на кнопках*/
+    border: none; /* Без границы у кнопок*/
+    padding: 10px 15px; /* Отступы внутри кнопок*/
+    border-radius: 4px; /* Закругленные углы у кнопок*/
+    cursor: pointer; /* Указатель при наведении на кнопки*/
+}
+
+/* Стили для отмены в модальном окне (если нужно выделить)*/
+.modal-button.cancel {
+   background-color : #dc3545 ; 
+}
+
+/* Стили для компонента react-select */
+.basic-multi-select {
+    width: 100%; /* Ширина на всю ширину контейнера */
+    margin-bottom: 15px; /* Отступ снизу от компонента */
+}
+
+/* Стили для контейнера выбора */
+.select__control {
+    border: 1px solid #ddd; /* Рамка вокруг контейнера выбора */
+    border-radius: 4px; /* Закругленные углы у контейнера выбора */
+    box-shadow: none; /* Убираем тень */
+    transition: border-color 0.3s ease; /* Плавный переход цвета рамки */
+}
+
+/* Эффект при наведении на контейнер выбора */
+.select__control:hover {
+    border-color: #007bff; /* Изменение цвета рамки при наведении */
+}
+
+/* Стили для выбранных элементов */
+.select__multi-value {
+    background-color: #007bff; /* Цвет фона для выбранных элементов */
+    color: white; /* Цвет текста для выбранных элементов */
+    border-radius: 4px; /* Закругленные углы у выбранных элементов */
+    display: flex; /* Используем flexbox для выравнивания текста и кнопки удаления */
+    align-items: center; /* Центрируем элементы по вертикали */
+}
+
+/* Стили для кнопки удаления выбранного элемента */
+.select__multi-value__remove {
+    background-color: transparent; /* Прозрачный фон для кнопки удаления */
+    border: none; /* Без границы у кнопки удаления */
+    color: white; /* Белый цвет текста кнопки удаления */
+    cursor: pointer; /* Указатель при наведении на кнопку удаления */
+    padding: 0 5px; /* Отступы внутри кнопки удаления */
+}
+
+/* Эффект при наведении на кнопку удаления выбранного элемента */
+.select__multi-value__remove:hover {
+    color: #dc3545; /* Красный цвет при наведении на кнопку удаления */
+}
+
+/* Стили для выпадающего списка опций */
+.select__menu {
+    z-index: 1000; /* Увеличиваем z-index, чтобы выпадающий список был поверх других элементов */
+}

@@ -1,0 +1,152 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Main container styles */
+.main-container {
+    display: flex;
+    padding: 20px;
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif; /* Using Roboto font */
+}
+
+/* Content area styles */
+.content {
+    flex: 1; /* Takes up available space */
+    margin-right: 20px;
+}
+
+/* Circular Button styles */
+.contact-button {
+    position: fixed; /* Fixes the button in place */
+    bottom: 10px; /* Distance from bottom */
+    right: 20px; /* Distance from right */
+    width: 60px; /* Width of the button */
+    height: 60px; /* Height of the button */
+    border-radius: 50%; /* Makes the button circular */
+    background-color: #84bdfa; /* Button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    font-size: 24px; /* Icon size */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow for depth */
+}
+
+/* Contact Window styles */
+.contact-window {
+    position: fixed; /* Fixes the window in place */
+    bottom: 100px; /* Distance from bottom */
+    right: 20px; /* Distance from right */
+    width: 300px; /* Fixed width for the contact window */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Shadow for depth */
+}
+
+/* Close Button styles */
+.close-button {
+    display: block;
+    margin-top: 10px;
+    padding: 5px;
+    background-color: #dc3545; /* Red color for close button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+h1 {
+    margin-left: 38%;
+    padding-top: 60px;
+    font-size: 15px; /* Размер шрифта заголовка */
+    color: #38acff; /* Цвет текста заголовка */
+    margin-bottom: 20px; /* Отступ снизу от заголовка */
+    font-family: 'Roboto', sans-serif; 
+}
+
+/* Headings styles */
+h2, h3, h4 {
+    color: #333;
+    font-family: 'Roboto', sans-serif; 
+}
+
+/* Home page styles */
+.home {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 60px; /* Space between items */
+    padding: 40px;
+}
+
+.news-item {
+    background-color: #ffffff; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(3, 3, 3, 0.368); /* Light shadow for depth */
+    padding: 15px;
+    text-align: center; /* Center text */
+}
+
+.news-item h3 {
+    font-family: 'Roboto', sans-serif; /* Beautiful font */
+    font-size: 20px; /* Title size */
+}
+
+.news-item img {
+    width: 87%; /* Full width for images */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Slightly rounded corners for images */
+}
+
+.news-item p {
+    font-family: 'Arial', sans-serif; /* Font for descriptions */
+    color: #555; /* Darker text color for readability */
+}
+
+/* Notifications styles */
+.notifications {
+    margin-top: 20px;
+}
+
+.notification-item {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* News list styles */
+.news-list {
+    list-style-type: none; /* Remove default list styling */
+    padding-left: 0; /* Remove left padding */
+}
+
+.news-list li {
+    display: flex; /* Flexbox for image and text alignment */
+    align-items: center; /* Center items vertically */
+}
+
+.news-list img {
+    width: 50px; /* Fixed width for images */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* Space between image and text */
+}
+
+.news-title {
+   font-weight:bold; /* Bold title for news items */ 
+}
+
+.news-date {
+   color:#777; /* Lighter color for date text */ 
+}
