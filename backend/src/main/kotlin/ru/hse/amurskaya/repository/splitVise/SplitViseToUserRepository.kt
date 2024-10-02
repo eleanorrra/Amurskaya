@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository
 import org.springframework.data.repository.query.Param
 import org.springframework.transaction.annotation.Transactional
 import ru.hse.amurskaya.model.entity.SplitViseToUser
+import ru.hse.amurskaya.model.entity.UserInfo
 
 interface SplitViseToUserRepository : CrudRepository<SplitViseToUser, SplitViseToUser> {
 

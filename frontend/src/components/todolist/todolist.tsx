@@ -114,8 +114,9 @@ const TodoListPage: React.FC<{ myUserId: number }> = ({myUserId}) => {
   if (!todoListData) {
     return <div>Загрузка...</div>;
   }
-  const firstTodoListData = todoListData[0];
-
+  const firstTodoListData = todoListData[0]
+  console.log(firstTodoListData)
+  console.log(contacts)
   return (
     <div className="todo-list-page">
       <h1>{firstTodoListData.todoList.name}</h1>
@@ -130,9 +131,7 @@ const TodoListPage: React.FC<{ myUserId: number }> = ({myUserId}) => {
             <span className={item.done ? 'done' : ''}>
               {item.name} ({contacts.find(contact => contact.userId === item.userId).name})
             </span>
-            <button onClick={() => deleteItem(item.id)} className="delete-button">
-              Удалить
-            </button>
+            <button onClick={() => deleteItem(item.id)} className="delete-button">✖</button>
           </li>
         ))}
       </ul>
@@ -142,14 +141,16 @@ const TodoListPage: React.FC<{ myUserId: number }> = ({myUserId}) => {
 
 
       {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content modal-todo-list">
+        <div className="modal-todo-list">
+          <div className="modal-content">
             <h2>Добавить новую задачу</h2>
             <form onSubmit={addUserToTodoList}>
               <select
                 value={selectedContactId}
                 onChange={(e) => setSelectedContactId(Number(e.target.value))}
                 required
+                className="basic-multi-select"
+                classNamePrefix="select"
               >
                 <option value="">Выберите контакт</option>
                 {contacts.map((contact) => (
@@ -163,12 +164,15 @@ const TodoListPage: React.FC<{ myUserId: number }> = ({myUserId}) => {
                 value={taskName}
                 onChange={(e) => setTaskName(e.target.value)}
                 placeholder="Название задачи"
+                className="modal-input"
                 required
               />
-              <button type="submit" disabled={!selectedContactId || !taskName}>
+              <button type="submit" disabled={!selectedContactId || !taskName} className='modal-button'>
                 Добавить
               </button>
-              <button type="button" onClick={closeModal}>Отмена</button>
+              <button type="button" onClick={closeModal} className='modal-button cancel'>
+                Отмена
+              </button>
             </form>
           </div>
         </div>

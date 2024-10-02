@@ -73,6 +73,7 @@ const SplitWise: React.FC<{ userId: number }> = ({userId}) => {
   const openAddUserModal = async () => {
     try {
       const response = await axios.get<Contact[]>(`${API_CONTACTS_BASE_URL}/user/${userId}`);
+      console.log(response)
       setContacts(response.data);
       setIsModalOpen(true);
     } catch (error) {
@@ -80,6 +81,7 @@ const SplitWise: React.FC<{ userId: number }> = ({userId}) => {
     }
   };
 
+  console.log(splitWiseList)
 
   return (
     <div className="my-splitwise-list">

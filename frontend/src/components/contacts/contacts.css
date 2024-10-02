@@ -5,14 +5,15 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background-color: #f8f8f8; /* Светлый фон для контрастности */
-  min-height: 100vh; /* Занимает всю высоту экрана */
+  padding-top: 80px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
 }
 
 /* Заголовок */
 h2 {
   font-size: 2rem;
-  color: #333333; /* Темный цвет текста */
+  color: #333333;
   margin-bottom: 20px;
 }
 
@@ -20,52 +21,52 @@ h2 {
 .neighbor {
   display: flex;
   align-items: center;
-  background-color: #fff; /* Белый фон для карточек контактов */
+  background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.51); /* Легкая тень */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.51);
   padding: 15px;
   margin-bottom: 15px;
-  width: 500px; /* Ширина карточки контакта */
+  width: 500px;
 }
 
 /* Информация о контакте */
 .info {
-  flex-grow: 1; /* Занимает оставшееся пространство */
+  flex-grow: 1;
   margin-left: 50px;
 }
 
 /* Заголовок имени контакта с кругом и кнопкой удаления */
 .contact-header {
-  display: flex; /* Центрируем элементы по вертикали */
+  display: flex; 
 }
 
 /* Круглый элемент для изображения или иконки */
 .circle {
-  width: 15px; /* Ширина круга */
-  height: 15px; /* Высота круга */
-  border-radius: 50%; /* Округление для круга */
-  background-color: #007bff; /* Цвет фона круга */
-  margin-right: 10px; /* Отступ справа от круга */
+  width: 15px; 
+  height: 15px; 
+  border-radius: 50%;
+  background-color: #007bff; 
+  margin-right: 10px;
 }
 
 /* Заголовок имени контакта */
 h3 {
   font-size: 1.5rem;
-  color: #007bff; /* Цвет имени */
+  color: #007bff; 
 }
 
 /* Кнопка удаления контакта */
 .delete-button {
-  background-color: transparent; /* Прозрачный фон для кнопки */
-  border: none; /* Без рамки */
-  color: #ff4d4d; /* Красный цвет для удаления */
-  cursor: pointer; /* Указатель при наведении */
+  background-color: transparent; 
+  border: none; 
+  color: #ff4d4d; 
+  cursor: pointer; 
 }
 
 /* Кнопка добавления контакта */
 .add-contact {
-  background-color: #28a745; /* Зеленый фон для кнопки добавления */
-  color: white; /* Белый текст на кнопке */
+  background-color: #28a745;
+  color: white;
   border: none;
   border-radius: 5px;
   padding: 10px;
@@ -78,14 +79,14 @@ h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Полупрозрачный фон */
+    background-color: rgba(0,0,0,0.5);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .modal-content {
-    background-color: white; /* Белый фон модального окна */
+    background-color: white; 
     padding: 20px;
     border-radius: 10px; 
     box-shadow: rgba(0,0,0,0.2) -1px -1px; 

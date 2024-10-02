@@ -1,92 +1,138 @@
 /* Основной контейнер страницы списка задач */
 .todo-list-page {
-    max-width: 600px; /* Максимальная ширина страницы */
-    margin: 0 auto; /* Центрирование страницы */
-    padding: 20px; /* Отступы внутри страницы */
-    background-color: #f8f9fa; /* Светлый фон для контраста */
-    border-radius: 8px; /* Закругленные углы */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 60px;
+    background-color: #f9f9f9; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 /* Заголовок списка задач */
 h1 {
-    font-size: 24px; /* Размер шрифта заголовка */
-    color: #000000; /* Цвет текста заголовка */
-    margin-bottom: 20px; /* Отступ снизу от заголовка */
+    font-size: 24px; 
+    color: #000000;
+    margin-bottom: 20px; 
 }
 
 /* Стили для списка задач */
 .todo-items {
-    list-style-type: none; /* Убираем маркеры списка */
-    padding: 0; /* Убираем отступы */
+    list-style-type: none;
+    padding: 0; 
 }
 
 /* Элементы списка задач */
 .todo-item {
-    display: flex; /* Используем flexbox для выравнивания элементов */
-    align-items: center; /* Центрируем элементы по вертикали */
-    padding: 12px; /* Отступы внутри элемента списка */
-    background-color: #ffffff; /* Белый фон для элементов списка */
-    border-radius: 4px; /* Закругленные углы у элементов списка */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Легкая тень для элементов списка */
-    margin-bottom: 10px; /* Отступ между элементами списка */
+    display: flex;
+    align-items: center; 
+    padding: 12px; 
+    background-color: #ffffff; 
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 10px; 
 }
 
 /* Стили для выполненных задач (зачеркнутый текст) */
 .todo-item span.done {
-    text-decoration: line-through; /* Зачеркивание текста выполненной задачи */
-    color: #6c757d; /* Цвет для выполненной задачи (серый) */
+    text-decoration: line-through; 
+    color: #6c757d;
 }
 
 /* Стили для чекбокса задач */
 .todo-item input[type="checkbox"] {
-    margin-right: 10px; /* Отступ справа от чекбокса */
+    margin-right: 10px; 
 }
 
 /* Кнопка удаления задачи */
 .delete-button {
-    background-color: transparent; /* Прозрачный фон для кнопки */
-    border: none; /* Без рамки */
-    color: #ff4d4d; /* Красный цвет для удаления */
-    cursor: pointer; /* Указатель при наведении */
+    background-color: transparent; 
+    border: none; 
+    color: #ff4d4d;
+    cursor: pointer; 
 }
 
 /* Кнопка добавления пользователя (или задачи) */
 .add-user-button {
-    display: block; /* Блок для кнопки добавления пользователя/задачи */
-    width: 100%; /* Ширина кнопки на всю ширину контейнера */
-    padding: 10px; /* Отступы внутри кнопки добавления пользователя/задачи */
-    background-color: #007bff; /* Синий цвет фона кнопки добавления пользователя/задачи */
-    color: white; /* Белый текст на кнопке добавления пользователя/задачи */
-    border: none; /* Без границы у кнопки добавления пользователя/задачи */
-    border-radius: 4px; /* Закругленные углы у кнопки добавления пользователя/задачи */
-    font-size: 16px; /* Размер шрифта для кнопки добавления пользователя/задачи */
-    cursor: pointer; /* Указатель при наведении на кнопку добавления пользователя/задачи */
+    display: block; 
+    width: 100%;
+    padding: 10px; 
+    background-color: #007bff; 
+    color: white; 
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 /* Стили для модального окна при добавлении пользователя в список задач*/
 .modal-todo-list {
-    background-color: white; /* Белый фон модального окна */
-    padding: 20px; /* Отступы внутри модального окна */
-    border-radius: 4px; /* Закругленные углы у модального окна */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.482);
 }
 
 /* Затемняющий фон для модального окна при открытии*/
 .overlay-todo-list {
-    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон для затемнения фона при открытии модального окна*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
 }
 
 /* Стили для выпадающего списка контактов в модальном окне*/
 select {
-    width: calc(100% - 20px); /* Ширина с учетом отступов от краев*/
-    margin-bottom: 15px; /* Отступ снизу от выпадающего списка*/
+    width: calc(100% - 20px);
+    margin-bottom: 15px;
 }
+
+.select__control:hover {
+    border-color: #007bff;
+}
+
+.select__multi-value {
+    background-color: #007bff; 
+    color: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.select__multi-value__remove {
+    background-color: transparent;
+    border: none; 
+    color: white;
+    cursor: pointer; 
+    padding: 0 5px;
+}
+
+/* Эффект при наведении на кнопку удаления выбранного элемента */
+.select__multi-value__remove:hover {
+    color: #dc3545;
+}
+
+/* Стили для выпадающего списка опций */
+.select__menu {
+    z-index: 1000;
+}
+
+
 
 
 /* Поля ввода в модальном окне */
 .modal-input {
     display: block;
-    width: calc(100% - 20px); /* Ширина с учетом отступов */
+    width: calc(100% - 20px);
     margin: 0 auto 10px; 
     padding: 10px;
     border: 1px solid #ddd; 
@@ -95,11 +141,12 @@ select {
 
 /* Кнопки в модальном окне */
 .modal-button {
-    background-color: #28a745; 
-    color: white; 
-    padding: 10px 15px; 
-    border-radius: 4px; 
-    cursor: pointer; 
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .modal-button.cancel {

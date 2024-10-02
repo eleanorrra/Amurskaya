@@ -1,53 +1,53 @@
 .splitwise-container {
-    max-width: 600px; /* Максимальная ширина страницы */
-    margin: 0 auto; /* Центрирование страницы */
-    padding: 20px; /* Отступы внутри страницы */
-    background-color: #f8f9fa; /* Светлый фон для контраста */
-    border-radius: 8px; /* Закругленные углы */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    max-width: 600px; 
+    margin: 0 auto; 
+    padding: 20px;
+    background-color: #f8f9fa; 
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .fixed-window {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: #f4f4f4; /* Light background */
+    background-color: #f4f4f4;
     padding: 15px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Shadow for depth */
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
 }
 
 .item-list {
-    list-style-type: none; /* Remove default list styling */
-    padding-left: 0; /* Remove left padding */
+    list-style-type: none; 
+    padding-left: 0; 
 }
 
 .item {
     display: flex;
-    justify-content: space-between; /* Space between item name and cost */
-    align-items: center; /* Center items vertically */
+    justify-content: space-between; 
+    align-items: center; 
     padding: 10px;
-    border-bottom: 1px solid #ddd; /* Divider line */
+    border-bottom: 1px solid #ddd;
 }
 
 .delete-button {
-    background-color: transparent; /* Прозрачный фон для кнопки */
-    border: none; /* Без рамки */
-    color: #dc3545; /* Красный цвет для удаления */
-    font-size: 20px; /* Размер шрифта кнопки удаления */
-    cursor: pointer; /* Указатель при наведении */
+    background-color: transparent;
+    border: none;
+    color: #dc3545; 
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .add-item-button {
-    display: block; /* Блок для кнопки добавления пользователя/задачи */
-    width: 100%; /* Ширина кнопки на всю ширину контейнера */
-    padding: 10px; /* Отступы внутри кнопки добавления пользователя/задачи */
-    background-color: #007bff; /* Синий цвет фона кнопки добавления пользователя/задачи */
-    color: white; /* Белый текст на кнопке добавления пользователя/задачи */
-    border: none; /* Без границы у кнопки добавления пользователя/задачи */
-    border-radius: 4px; /* Закругленные углы у кнопки добавления пользователя/задачи */
-    font-size: 16px; /* Размер шрифта для кнопки добавления пользователя/задачи */
-    cursor: pointer; /* Указатель при наведении на кнопку добавления пользователя/задачи */
+    display: block; 
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white; 
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .modal-overlay {
@@ -59,9 +59,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white; /* White background for modal */
+    background-color: white; 
     padding: 20px;
-    border-radius: 8px; /* Rounded corners for modal */
+    border-radius: 8px; 
 }
 
 .modal-buttons {

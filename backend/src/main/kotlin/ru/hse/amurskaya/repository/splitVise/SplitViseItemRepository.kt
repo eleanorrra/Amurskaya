@@ -23,7 +23,7 @@ interface SplitViseItemRepository: CrudRepository<SplitViseItem, Long> {
                                                 on svi.id = svitu.split_vise_item_id
                              WHERE svi.user_payed_id = :userIdFrom
                                AND :userIdTo IN (user_id)),
-                    svi_items_price AS (SELECT svi.price / (count(user_id) + 1) as price
+                    svi_items_price AS (SELECT svi.price / (count(user_id)) as price
                          FROM split_vice_item_to_user svitu
                                   LEFT JOIN public.split_vise_item svi on svi.id = svitu.split_vise_item_id
                                   JOIN split_vise_item_ids ON svi.id = split_vise_item_ids.split_vise_item_id
@@ -31,7 +31,7 @@ interface SplitViseItemRepository: CrudRepository<SplitViseItem, Long> {
                 SELECT sum(price) from svi_items_price
         """
     )
-    fun getSumOfDebt(@Param("userIdFrom") userIdFrom: Long, @Param("userIdTo") userIdTo: Long): BigDecimal
+    fun getSumOfDebt(@Param("userIdFrom") userIdFrom: Long, @Param("userIdTo") userIdTo: Long): BigDecimal?
 
     fun deleteAllBySplitViseId(splitViseId: Long)
 }

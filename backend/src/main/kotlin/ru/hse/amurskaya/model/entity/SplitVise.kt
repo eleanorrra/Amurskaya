@@ -1,5 +1,6 @@
 package ru.hse.amurskaya.model.entity
 
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 import java.math.BigDecimal
@@ -23,7 +24,7 @@ class SplitViseItem(
     val price: BigDecimal,
 )
 
-@Table("split_vise_item_to_user")
+@Table("split_vice_item_to_user")
 class SplitViseUserItem(
     val splitViseItemId: Long,
     val userId: Long,
@@ -38,7 +39,7 @@ class SplitViseToUser(
 @Table("split_vise_balance")
 class SplitViseBalance(
     @Id
-    val id: Long,
+    val id: Long? = null,
     val splitViseId: Long,
     val userIdFrom: Long,
     val userIdTo: Long,

@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -29,6 +30,14 @@ class SplitViseController(
         return getSplitViseResponse(userId, null)
     }
 
+    @GetMapping("/{id}/user/{user-id}")
+    fun getSplitVise(
+        @PathVariable("user-id") userId: Long,
+        @PathVariable("id") splitViseId: Long
+    ): List<SplitViseResponse> {
+        return getSplitViseResponse(userId, splitViseId)
+    }
+
     private fun getSplitViseResponse(userId: Long, splitViseId: Long?) =
         if (splitViseId == null) {
             splitViseRepository.findAll().map {
@@ -42,33 +51,39 @@ class SplitViseController(
                                 getSplitViseStatistic(
                                     userId,
                                     splitViseUserId,
+                                    splitViseId = it.id!!
                                 )
                             }
                     } else emptyList()
                 )
             }
         } else {
-            listOf(splitViseRepository.findById(splitViseId).get().let {
+            listOf(splitViseRepository.findById(splitViseId).get().let { splitVise ->
                 SplitViseResponse(
-                    splitVise = it,
-                    splitViseItems = splitViseItemRepository.findAllBySplitViseId(it.id!!),
-                    splitViseStatistic = splitViseToUserRepository.findAllBySplitViseId(it.id!!)
-                        .filter { splitViseUserId -> splitViseUserId != userId }
-                        .map { splitViseUserId ->
-                            getSplitViseStatistic(
-                                userId,
-                                splitViseUserId,
-                            )
-                        }
+                    splitVise = splitVise,
+                    splitViseItems = splitViseItemRepository.findAllBySplitViseId(splitVise.id!!),
+                    splitViseStatistic = if (splitViseItemRepository.findAllBySplitViseId(splitVise.id!!).isNotEmpty()) {
+                        splitViseToUserRepository.findAllBySplitViseId(splitVise.id!!)
+                            .filter { splitViseUserId -> splitViseUserId != userId }
+                            .map { splitViseUserId ->
+                                getSplitViseStatistic(
+                                    userId,
+                                    splitViseUserId,
+                                    splitVise.id!!
+                                )
+                            }
+                    } else emptyList()
                 )
             })
         }
 
-    private fun getSplitViseStatistic(userIdFrom: Long, userIdTo: Long): SplitViseStatistic {
-        val userFromItemPrice = splitViseItemRepository.getSumOfDebt(userIdFrom, userIdTo)
-        val userToItemPrice = splitViseItemRepository.getSumOfDebt(userIdTo, userIdFrom)
-        val userFromBalancePrice = splitViseBalanceRepository.findBalanceFromUserToUser(userIdFrom, userIdTo)
-        val userToBalancePrice = splitViseBalanceRepository.findBalanceFromUserToUser(userIdTo, userIdFrom)
+    private fun getSplitViseStatistic(userIdFrom: Long, userIdTo: Long, splitViseId: Long): SplitViseStatistic {
+        val userFromItemPrice = splitViseItemRepository.getSumOfDebt(userIdFrom, userIdTo) ?: BigDecimal.ZERO
+        val userToItemPrice = splitViseItemRepository.getSumOfDebt(userIdTo, userIdFrom) ?: BigDecimal.ZERO
+        val userFromBalancePrice =
+            splitViseBalanceRepository.findBalanceFromUserToUser(userIdFrom, userIdTo, splitViseId) ?: BigDecimal.ZERO
+        val userToBalancePrice =
+            splitViseBalanceRepository.findBalanceFromUserToUser(userIdTo, userIdFrom, splitViseId) ?: BigDecimal.ZERO
         val debt = userFromBalancePrice + userFromItemPrice - userToItemPrice - userToBalancePrice
         return if (debt > BigDecimal.ZERO) {
             SplitViseStatistic(
@@ -116,7 +131,12 @@ class SplitViseController(
     ): SplitViseResponse {
         splitViseItem.apply {
             splitViseItemRepository.save(this.splitViseItem)
-            splitViseItemToUserRepository.saveAll(this.userIds.map { SplitViseUserItem(this.splitViseItem.id!!, it) })
+            this.userIds.forEach {
+                splitViseItemToUserRepository.insertSplitViseItemToUser(
+                    splitViseItem.splitViseItem.id!!,
+                    it
+                )
+            }
         }
         return splitViseItem
             .let {
@@ -124,12 +144,23 @@ class SplitViseController(
             }.first()
     }
 
+    @PostMapping("/{id}/balance")
+    fun addBalanceToSplitVise(@RequestBody balance: SplitViseBalance, @PathVariable("id") id: Long) =
+        splitViseBalanceRepository.saveBalance(balance.splitViseId, balance.userIdFrom, balance.userIdTo, balance.debt)
+
+    @DeleteMapping("/balance/{id}")
+    fun deleteBalanceFromSplitVise(@PathVariable("id") id: Long) =
+        splitViseBalanceRepository.deleteById(id)
+
+    @GetMapping("/{id}/balance")
+    fun getBalancesBySplitWiseId(@PathVariable("id") splitViseId: Long) =
+        splitViseBalanceRepository.findAllBySplitViseId(splitViseId)
+
     @DeleteMapping("/{id}/item/{item-id}")
     fun deleteItemFromSplitVise(
         @PathVariable("id") splitViseId: Long,
         @PathVariable("item-id") itemId: Long
     ) {
         splitViseItemRepository.deleteById(itemId)
-        splitViseItemToUserRepository.deleteAllBySplitViseItemId(itemId)
     }
 }

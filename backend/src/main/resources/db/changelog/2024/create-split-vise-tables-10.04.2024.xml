@@ -52,7 +52,7 @@
 
     <changeSet id="create-split-vise-balance-table" author="e.ignatyeva">
         <createTable tableName="split_vise_balance">
-            <column name="id" type="bigint">
+            <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
             </column>
             <column name="split_vise_id" type="bigint">

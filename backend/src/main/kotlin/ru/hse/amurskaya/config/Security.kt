@@ -3,6 +3,7 @@ package ru.hse.amurskaya.config
 import AmurskayaUserDetailService
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -20,8 +21,16 @@ class SecurityConfig {
     @Bean
     fun securityFilterChain(http: HttpSecurity, userDetailService: AmurskayaUserDetailService): SecurityFilterChain =
         http
+            //.cors { it.disable() }
             .cors { it.configurationSource(corsConfigurationSource()) }
             .csrf { it.disable() }
+            //.authorizeHttpRequests {
+            //                it
+            //                    .requestMatchers("/system/**", "/metrics", "/api/openapi.json").permitAll()
+            //                    .requestMatchers("/register", "/login").permitAll()
+            //                    .requestMatchers("/**").authenticated()
+            //            }
+            //.userDetailsService(userDetailService)
             .build()
 
     @Bean

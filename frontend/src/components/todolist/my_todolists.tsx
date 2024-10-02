@@ -44,7 +44,7 @@ const MyToDoLists: React.FC<{ userId: number }> = ({userId}) => {
       await axios.post(`${API_BASE_URL}`, {name: newListName, userId: userId});
       setIsModalOpen(false);
       setNewListName('');
-      fetchTodoLists();
+      fetchTodoLists(); // Обновляем список после добавления
     } catch (error) {
       console.error('Ошибка при создании списка дел:', error);
     }
